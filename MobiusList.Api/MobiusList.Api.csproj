@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Folder Include="Controllers" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\MobiusList.Core\MobiusList.Core.csproj" />
+      <ProjectReference Include="..\MobiusList.Data\MobiusList.Data.csproj" />
+      <ProjectReference Include="..\MobiusList.Services\MobiusList.Services.csproj" />
+    </ItemGroup>
+
+
+</Project>
