@@ -24,6 +24,8 @@ namespace MobiusList.Data.Migrations
             
             migrationBuilder.Sql(
                 "INSERT INTO Product (Name, Description, Price, CategoryId) VALUES ('Change Things Until They Work, OReily', 'Real Development', '19.99', (SELECT CategoryId FROM Category WHERE Name = 'Book'))");
+            
+            
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

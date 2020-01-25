@@ -16,17 +16,7 @@ namespace MobiusList.Data.Repositories
         {
             
         }
-
-        public async Task<IEnumerable<Product>> GetAllProductsAsync()
-        {
-            return await MobiusDbContext.Products.ToListAsync();
-        }
-
-        public async Task<Product> GetProductByIdAsync(int id)
-        {
-            return await MobiusDbContext.Products.SingleOrDefaultAsync(p => p.ProductNumber == id);
-        }
-
+        
         public async Task<IEnumerable<Product>> GetProductsByCategoryNameAsync(string name)
         {
             return await MobiusDbContext.Products.Where(p => p.Category.Name == name).ToListAsync();

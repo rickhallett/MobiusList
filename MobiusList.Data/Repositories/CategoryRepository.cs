@@ -13,15 +13,5 @@ namespace MobiusList.Data.Repositories
         public CategoryRepository(DbContext context) : base(context)
         {
         }
-
-        public async Task<IEnumerable<Category>> GetAllCategoriesAsync()
-        {
-            return await MobiusDbContext.Category.ToListAsync();
-        }
-
-        public async Task<Category> GetCategoryByIdAsync(int id)
-        {
-            return await MobiusDbContext.Category.FindAsync(id);
-        }
     }
 }
