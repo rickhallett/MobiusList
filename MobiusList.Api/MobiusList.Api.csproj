@@ -5,13 +5,13 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="Controllers" />
-    </ItemGroup>
-
-    <ItemGroup>
       <ProjectReference Include="..\MobiusList.Core\MobiusList.Core.csproj" />
       <ProjectReference Include="..\MobiusList.Data\MobiusList.Data.csproj" />
       <ProjectReference Include="..\MobiusList.Services\MobiusList.Services.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Swashbuckle.AspNetCore" Version="5.0.0" />
     </ItemGroup>
 
 
