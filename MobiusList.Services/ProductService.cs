@@ -19,7 +19,11 @@ namespace MobiusList.Services
         
         public async Task<IEnumerable<Product>> GetAllProducts()
         {
-            return await _unitOfWork.Products.GetAllAsync();
+            var products = await _unitOfWork.Products.GetAllAsync();
+            foreach (var product in products)
+            {
+                
+            }
         }
 
         public async Task<Product> GetProductById(int id)

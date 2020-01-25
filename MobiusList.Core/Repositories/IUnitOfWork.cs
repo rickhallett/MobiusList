@@ -7,6 +7,7 @@ namespace MobiusList.Core.Repositories
     {
         IProductRepository Products { get; }
         ICategoryRepository Categories { get; }
+
         Task<int> CommitAsync();
     }
 }
