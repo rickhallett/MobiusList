@@ -9,6 +9,6 @@ namespace MobiusList.Core.Repositories
     {
         Task<IEnumerable<Product>> GetAllProductsAsync();
         Task<Product> GetProductByIdAsync(Guid id);
-        Task<IEnumerable<Product>> GetProductsByCategoryName(string name);
+        Task<IEnumerable<Product>> GetProductsByCategoryNameAsync(string name);
     }
 }
