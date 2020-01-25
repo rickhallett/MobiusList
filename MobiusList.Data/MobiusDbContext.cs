@@ -20,34 +20,6 @@ namespace MobiusList.Data
         {
             modelBuilder.ApplyConfiguration(new ProductConfiguration());
             modelBuilder.ApplyConfiguration(new CategoryConfiguration());
-
-//            modelBuilder.Entity<Category>().HasData(new List<Category>
-//            {
-//                new Category
-//                {
-//                    CategoryId = Guid.NewGuid(),
-//                    Name = "Device"
-//                },
-//                new Category
-//                {
-//                    CategoryId = Guid.NewGuid(),
-//                    Name = "Peripheral"
-//                },
-//                new Category
-//                {
-//                    CategoryId = Guid.NewGuid(),
-//                    Name = "Education"
-//                },
-//            });
-//
-//            modelBuilder.Entity<Product>().HasData(new List<Product>
-//            {
-//                new Product
-//                {
-//                    Name = "Macbook Pro",
-//                    Category = Categories.SingleOrDefault(c => c.Name == "Device")
-//                }
-//            });
         }
     }
 }

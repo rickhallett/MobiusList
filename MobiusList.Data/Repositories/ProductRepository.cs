@@ -10,6 +10,8 @@ namespace MobiusList.Data.Repositories
 {
     public class ProductRepository : Repository<Product>, IProductRepository
     {
+        private MobiusDbContext MobiusDbContext => Context as MobiusDbContext;
+        
         public ProductRepository(DbContext context) : base(context)
         {
             
@@ -17,7 +19,6 @@ namespace MobiusList.Data.Repositories
 
         public async Task<IEnumerable<Product>> GetAllProductsAsync()
         {
-
             return await MobiusDbContext.Products.ToListAsync();
         }
 
@@ -30,7 +31,5 @@ namespace MobiusList.Data.Repositories
         {
             return await MobiusDbContext.Products.Where(p => p.Category.Name == name).ToListAsync();
         }
-
-        private MobiusDbContext MobiusDbContext => Context as MobiusDbContext;
     }
 }
