@@ -8,7 +8,7 @@ namespace MobiusList.Core.Repositories
     public interface IProductRepository : IRepository<Product>
     {
         Task<IEnumerable<Product>> GetAllProductsAsync();
-        Task<Product> GetProductByIdAsync(Guid id);
+        Task<Product> GetProductByIdAsync(int id);
         Task<IEnumerable<Product>> GetProductsByCategoryNameAsync(string name);
     }
 }

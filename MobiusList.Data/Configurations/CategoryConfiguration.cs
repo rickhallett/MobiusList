@@ -4,30 +4,27 @@ using MobiusList.Core.Models;
 
 namespace MobiusList.Data.Configurations
 {
-    public class ProductConfiguration : IEntityTypeConfiguration<Product>
+    public class CategoryConfiguration : IEntityTypeConfiguration<Category>
     {
-        public void Configure(EntityTypeBuilder<Product> builder)
+        public void Configure(EntityTypeBuilder<Category> builder)
         {
             builder
-                .HasKey(p => p.ProductNumber);
+                .HasKey(c => c.CategoryId);
             
             builder
-                .Property(p => p.ProductNumber)
+                .Property(c => c.CategoryId)
                 .UseIdentityColumn();
             
             builder
-                .Property(p => p.ProductNumber)
+                .Property(c => c.CategoryId)
                 .IsRequired();
             
             builder
-                .Property(p => p.Name)
+                .Property(c => c.Name)
                 .IsRequired();
 
             builder
-                .HasOne(p => p.Category);
-
-            builder
-                .ToTable("Product");
+                .ToTable("Category");
         }
     }
 }

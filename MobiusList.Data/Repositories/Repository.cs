@@ -21,6 +21,11 @@ namespace MobiusList.Data.Repositories
         {
             return await Context.Set<TEntity>().FindAsync(id);
         }
+        
+        public async ValueTask<TEntity> GetByNumberIdAsync(int id)
+        {
+            return await Context.Set<TEntity>().FindAsync(id);
+        }
 
         public async Task<IEnumerable<TEntity>> GetAllAsync()
         {
