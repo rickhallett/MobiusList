@@ -18,7 +18,7 @@ namespace MobiusList.Services
             _context = mobiusDbContext;
         }
         
-        public async Task<IEnumerable<Product>> GetAllProducts()
+        public async Task<IEnumerable<Product>> GetAllProductsAsync()
         {
             return await _context.Products
                 .Include(p => p.Category)
@@ -32,7 +32,7 @@ namespace MobiusList.Services
             throw new NotImplementedException();
         }
 
-        public async Task<IEnumerable<Product>> GetProductsByCategory(string name)
+        public async Task<IEnumerable<Product>> GetProductsByCategoryAsync(string name)
         {
             return await _context.Products
                 .Include(p => p.Category)
@@ -40,9 +40,12 @@ namespace MobiusList.Services
                 .ToListAsync();
         }
 
-        public async Task<Product> CreateProduct(Product newProduct)
+        public async Task<bool> CreateProductAsync(Product newProduct)
         {
-            throw new NotImplementedException();
+            await _context.Products.AddAsync(newProduct);
+            var changes = await _context.SaveChangesAsync();
+
+            return changes > 0;
         }
 
         public async Task UpdateProduct(Product productToBeUpdated, Product product)

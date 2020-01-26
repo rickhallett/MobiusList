@@ -22,7 +22,12 @@ namespace MobiusList.Data.Services
 
         public async Task<Category> GetCategoryById(int id)
         {
-            throw new NotImplementedException();
+            return await _context.Category.FindAsync(id);
+        }
+
+        public bool HasId(int id)
+        {
+            return _context.Category.Any(c => c.Id == id);
         }
 
         public bool HasCategory(string name)

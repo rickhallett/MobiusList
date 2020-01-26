@@ -17,6 +17,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <Folder Include="Contracts\Response" />
       <Folder Include="Migrations" />
     </ItemGroup>
 

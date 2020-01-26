@@ -6,10 +6,10 @@ namespace MobiusList.Data.Services
 {
     public interface IProductService
     {
-        Task<IEnumerable<Product>> GetAllProducts();
+        Task<IEnumerable<Product>> GetAllProductsAsync();
         Task<Product> GetProductById(int id);
-        Task<IEnumerable<Product>> GetProductsByCategory(string name);
-        Task<Product> CreateProduct(Product newProduct);
+        Task<IEnumerable<Product>> GetProductsByCategoryAsync(string name);
+        Task<bool> CreateProductAsync(Product newProduct);
         Task UpdateProduct(Product productToBeUpdated, Product product);
         Task DeleteProduct(Product product);
     }
