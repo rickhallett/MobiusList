@@ -4,6 +4,7 @@ using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using MobiusList.Api.Contracts.Request;
 using MobiusList.Api.Resources;
+using MobiusList.Api.Services;
 using MobiusList.Data.Models;
 using MobiusList.Data.Services;
 
@@ -15,15 +16,18 @@ namespace MobiusList.Api.Controllers
         private readonly IProductService _productService;
         private readonly ICategoryService _categoryService;
         private readonly IMapper _mapper;
+        private readonly IUriService _uriService;
 
-        public ProductController(IProductService productService, IMapper mapper, ICategoryService categoryService)
+        public ProductController(IProductService productService, IMapper mapper,
+        ICategoryService categoryService, IUriService uriService)
         {
             _productService = productService;
             _mapper = mapper;
             _categoryService = categoryService;
+            _uriService = uriService;
         }
 
-        [HttpGet("api/products")]
+        [HttpGet(ApiRoutes.Products.GetAll)]
         public async Task<IActionResult> GetAllProducts([FromQuery] string category)
         {
             IEnumerable<Product> products = new List<Product>();
@@ -42,7 +46,7 @@ namespace MobiusList.Api.Controllers
             return Ok(products);
         }
 
-        [HttpPost("api/products")]
+        [HttpPost(ApiRoutes.Products.Create)]
         public async Task<IActionResult> CreateProduct([FromBody] CreateProductRequest productRequest)
         {
             if (_categoryService.HasId(productRequest.CategoryId))
@@ -59,13 +63,11 @@ namespace MobiusList.Api.Controllers
 
                 if (created)
                 {
-                    return Created("", newProduct);
+                    return Created(_uriService.GetProductUri(newProduct.ProductNumber.ToString()), newProduct);
                 }
             }
 
             return StatusCode(400, "Category not available");
         }
-
-
     }
 }

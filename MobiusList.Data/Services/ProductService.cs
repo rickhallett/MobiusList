@@ -42,7 +42,7 @@ namespace MobiusList.Services
 
         public async Task<bool> CreateProductAsync(Product newProduct)
         {
-            await _context.Products.AddAsync(newProduct);
+            var c = await _context.Products.AddAsync(newProduct);
             var changes = await _context.SaveChangesAsync();
 
             return changes > 0;

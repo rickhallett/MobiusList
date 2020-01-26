@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using MobiusList.Data.Models;
 
 namespace MobiusList.Data.Services
@@ -17,7 +18,7 @@ namespace MobiusList.Data.Services
 
         public async Task<IEnumerable<Category>> GetAllCategories()
         {
-            throw new NotImplementedException();
+            return await _context.Category.ToListAsync();
         }
 
         public async Task<Category> GetCategoryById(int id)
