@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using MobiusList.Data.Models;
 
@@ -7,11 +8,11 @@ namespace MobiusList.Data.Services
 {
     public class CategoryService : ICategoryService
     {
-      
+        private readonly MobiusDbContext _context;
 
-        public CategoryService()
+        public CategoryService(MobiusDbContext context)
         {
-            
+            _context = context;
         }
 
         public async Task<IEnumerable<Category>> GetAllCategories()
@@ -23,7 +24,12 @@ namespace MobiusList.Data.Services
         {
             throw new NotImplementedException();
         }
-        
+
+        public bool HasCategory(string name)
+        {
+            return _context.Category.Any(c => c.Name == name);
+        }
+
         public async Task<Category> CreateCategory(Category newCategory)
         {
             throw new NotImplementedException();

@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using MobiusList.Data;
 using MobiusList.Data.Models;
 using MobiusList.Data.Services;
-
 
 namespace MobiusList.Services
 {
@@ -20,7 +20,11 @@ namespace MobiusList.Services
         
         public async Task<IEnumerable<Product>> GetAllProducts()
         {
-            return await _context.Products.Include(p => p.Category).ToListAsync();
+            return await _context.Products
+                .Include(p => p.Category)
+                .OrderBy(p => p.Name)
+                .ThenBy(p => p.Price)
+                .ToListAsync();
         }
 
         public async Task<Product> GetProductById(int id)
@@ -30,7 +34,10 @@ namespace MobiusList.Services
 
         public async Task<IEnumerable<Product>> GetProductsByCategory(string name)
         {
-            throw new NotImplementedException();
+            return await _context.Products
+                .Include(p => p.Category)
+                .Where(p => p.Category.Name == name)
+                .ToListAsync();
         }
 
         public async Task<Product> CreateProduct(Product newProduct)

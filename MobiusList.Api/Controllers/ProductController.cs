@@ -12,20 +12,41 @@ namespace MobiusList.Api.Controllers
     public class ProductController : Controller
     {
         private readonly IProductService _productService;
+        private readonly ICategoryService _categoryService;
         private readonly IMapper _mapper;
 
-        public ProductController(IProductService productService, IMapper mapper)
+        public ProductController(IProductService productService, IMapper mapper, ICategoryService categoryService)
         {
             _productService = productService;
             _mapper = mapper;
+            _categoryService = categoryService;
         }
 
         [HttpGet("api/products")]
-        public async Task<IActionResult> GetAllProducts()
+        public async Task<IActionResult> GetAllProducts([FromQuery] string category)
         {
-            var products = await _productService.GetAllProducts();
+            IEnumerable<Product> products = new List<Product>();
+            
+            if (string.IsNullOrEmpty(category))
+            {
+                products = await _productService.GetAllProducts();
+            }
+
+            if (_categoryService.HasCategory(category))
+            {
+                products = await _productService.GetProductsByCategory(category);
+            }
+
             var productResources = _mapper.Map<IEnumerable<Product>, IEnumerable<ProductResource>>(products);
             return Ok(products);
         }
+
+//        [HttpGet("api/products/{categoryName}")]
+//        public async Task<IActionResult> GetAllProducts()
+//        {
+//            var products = await _productService.GetAllProducts();
+//            var productResources = _mapper.Map<IEnumerable<Product>, IEnumerable<ProductResource>>(products);
+//            return Ok(products);
+//        }
     }
 }

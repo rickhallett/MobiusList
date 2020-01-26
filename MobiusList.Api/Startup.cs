@@ -37,6 +37,7 @@ namespace MobiusList.Api
             services.AddAutoMapper(typeof(Startup));
 
             services.AddTransient<IProductService, ProductService>();
+            services.AddTransient<ICategoryService, CategoryService>();
         }
         
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

@@ -8,6 +8,7 @@ namespace MobiusList.Data.Services
     {
         Task<IEnumerable<Category>> GetAllCategories();
         Task<Category> GetCategoryById(int id);
+        bool HasCategory(string name);
         Task<Category> CreateCategory(Category newCategory);
         Task UpdateCategory(Category categoryToBeUpdated, Category category);
         Task DeleteCategory(Category product);
