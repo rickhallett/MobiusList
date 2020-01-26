@@ -4,8 +4,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobiusList.Api", "MobiusLis
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobiusList.Data", "MobiusList.Data\MobiusList.Data.csproj", "{0ECC987F-C4B1-4229-987C-A159BB86A402}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobiusList.View", "MobiusList.View\MobiusList.View.csproj", "{BC514B42-4297-4C5A-8FBA-98022F6D1FEF}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,9 +18,5 @@ Global
 		{0ECC987F-C4B1-4229-987C-A159BB86A402}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0ECC987F-C4B1-4229-987C-A159BB86A402}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0ECC987F-C4B1-4229-987C-A159BB86A402}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BC514B42-4297-4C5A-8FBA-98022F6D1FEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BC514B42-4297-4C5A-8FBA-98022F6D1FEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BC514B42-4297-4C5A-8FBA-98022F6D1FEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BC514B42-4297-4C5A-8FBA-98022F6D1FEF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
