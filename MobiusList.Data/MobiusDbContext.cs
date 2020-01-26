@@ -11,15 +11,12 @@ namespace MobiusList.Data
     {
         public DbSet<Product> Products { get; set; }
         public DbSet<Category> Category { get; set; }
+        public DbSet<Customer> Customers { get; set; }
+        public DbSet<CustomerAddress> CustomerAddresses { get; set; }
+        public DbSet<Order> Orders { get; set; }
 
-        public MobiusDbContext(DbContextOptions<MobiusDbContext> options) 
-            : base(options)
-        { }
+        public MobiusDbContext(DbContextOptions<MobiusDbContext> options) : base(options) {}
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.ApplyConfiguration(new ProductConfiguration());
-            modelBuilder.ApplyConfiguration(new CategoryConfiguration());
-        }
+        protected override void OnModelCreating(ModelBuilder modelBuilder) {}
     }
 }

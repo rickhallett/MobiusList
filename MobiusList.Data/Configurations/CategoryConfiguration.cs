@@ -8,23 +8,7 @@ namespace MobiusList.Data.Configurations
     {
         public void Configure(EntityTypeBuilder<Category> builder)
         {
-            builder
-                .HasKey(c => c.CategoryId);
             
-            builder
-                .Property(c => c.CategoryId)
-                .UseIdentityColumn();
-            
-            builder
-                .Property(c => c.CategoryId)
-                .IsRequired();
-            
-            builder
-                .Property(c => c.Name)
-                .IsRequired();
-
-            builder
-                .ToTable("Category");
         }
     }
 }

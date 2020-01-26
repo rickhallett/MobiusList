@@ -1,22 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using MobiusList.Data;
 using MobiusList.Data.Models;
 using MobiusList.Data.Services;
 
+
 namespace MobiusList.Services
 {
-    public class ProductService : IProductService
+    public class ProductService: IProductService
     {
+        private readonly MobiusDbContext _context;
         
-        public ProductService()
+        public ProductService(MobiusDbContext mobiusDbContext)
         {
-           
+            _context = mobiusDbContext;
         }
         
         public async Task<IEnumerable<Product>> GetAllProducts()
         {
-            throw new NotImplementedException();
+            return await _context.Products.Include(p => p.Category).ToListAsync();
         }
 
         public async Task<Product> GetProductById(int id)

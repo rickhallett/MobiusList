@@ -7,6 +7,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using MobiusList.Data;
+using MobiusList.Data.Services;
+using MobiusList.Services;
 
 namespace MobiusList.Api
 {
@@ -23,7 +25,7 @@ namespace MobiusList.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<MobiusDbContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("DevDB"), x => x.MigrationsAssembly("MobiusList.Data")));
+                options.UseSqlServer(Configuration.GetConnectionString("DevDB"), x => x.MigrationsAssembly("MobiusList.Api")));
             
             services.AddControllers();
 
@@ -34,7 +36,7 @@ namespace MobiusList.Api
 
             services.AddAutoMapper(typeof(Startup));
 
-            
+            services.AddTransient<IProductService, ProductService>();
         }
         
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
