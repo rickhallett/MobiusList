@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using MobiusList.Core.Models;
+using MobiusList.Data.Models;
 
-namespace MobiusList.Core.Services
+namespace MobiusList.Data.Services
 {
     public interface IProductService
     {

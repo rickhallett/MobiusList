@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MobiusList.Core.Models
+namespace MobiusList.Data.Models
 {
     public class Order
     {

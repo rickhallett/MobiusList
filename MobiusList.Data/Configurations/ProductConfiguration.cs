@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using MobiusList.Core.Models;
+using MobiusList.Data.Models;
 
 namespace MobiusList.Data.Configurations
 {

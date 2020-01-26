@@ -49,4 +49,9 @@
       <RegFreeComManifest Remove="obj\Debug\netcoreapp3.0\MobiusList.Core.X.manifest" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Models" />
+      <Folder Include="Services" />
+    </ItemGroup>
+
 </Project>

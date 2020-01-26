@@ -3,8 +3,8 @@ using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using MobiusList.Api.Resources;
-using MobiusList.Core.Models;
-using MobiusList.Core.Services;
+using MobiusList.Data.Models;
+using MobiusList.Data.Services;
 
 namespace MobiusList.Api.Controllers
 {

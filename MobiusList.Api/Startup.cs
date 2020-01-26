@@ -1,22 +1,12 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using MobiusList.Core.Repositories;
-using MobiusList.Core.Services;
 using MobiusList.Data;
-using MobiusList.Services;
 
 namespace MobiusList.Api
 {
@@ -44,9 +34,7 @@ namespace MobiusList.Api
 
             services.AddAutoMapper(typeof(Startup));
 
-            services.AddScoped<IUnitOfWork, UnitOfWork>();
-            services.AddTransient<IProductService, ProductService>();
-            services.AddTransient<ICategoryService, CategoryService>();
+            
         }
         
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -57,15 +45,12 @@ namespace MobiusList.Api
             }
 
             app.UseHttpsRedirection();
-
             app.UseRouting();
-
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
 
             app.UseSwagger();
-
             app.UseSwaggerUI(c =>
             {
                 c.RoutePrefix = "";

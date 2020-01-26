@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
-using MobiusList.Core.Models;
 using MobiusList.Data.Configurations;
+using MobiusList.Data.Models;
 
 namespace MobiusList.Data
 {

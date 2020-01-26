@@ -1,6 +1,6 @@
 using AutoMapper;
 using MobiusList.Api.Resources;
-using MobiusList.Core.Models;
+using MobiusList.Data.Models;
 
 namespace MobiusList.Api.Mapping
 {
