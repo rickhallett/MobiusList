@@ -36,9 +36,13 @@ namespace MobiusList.Data.Services
             return _context.Category.Any(c => c.Name == name);
         }
 
-        public async Task<Category> CreateCategory(Category newCategory)
+        public async Task<bool> CreateCategoryAsync(Category newCategory)
         {
-            throw new NotImplementedException();
+            await _context.Category.AddAsync(newCategory);
+            
+            var changes = await _context.SaveChangesAsync();
+
+            return changes > 0;
         }
 
         public async Task UpdateCategory(Category categoryToBeUpdated, Category category)
